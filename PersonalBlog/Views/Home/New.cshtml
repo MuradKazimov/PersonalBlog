@@ -1,0 +1,26 @@
+﻿@model PersonalBlog.Models.EntityFrameWork.ToDoList
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex">
+
+    @using (Html.BeginForm("New", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Task)
+            @Html.TextBoxFor(m => m.Task, new { @class = "form-control" })
+            @Html.LabelFor(m => m.Priority)
+            @Html.TextBoxFor(m => m.Priority, new { @class = "form-control" })
+
+        </div>
+        @Html.HiddenFor(m => m.TaskNo)
+        <button type="submit" class="btn btn-success">Add</button>
+    }
+</div>
+<style>
+    form{
+        width:35%
+    }
+</style>
